@@ -1,6 +1,6 @@
-import Breakfast from '../Breakfast/Breakfast';
 import { Row } from 'react-bootstrap';
-import setBreakfast from '../../../../Hooks/setBreakfast';
+import setBreakfast from '../../../Hooks/setBreakfast';
+import Breakfast from '../Breakfast/Breakfast';
 
 const Breakfasts = () => {
     const { breakfasts } = setBreakfast();

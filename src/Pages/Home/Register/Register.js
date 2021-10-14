@@ -10,7 +10,7 @@ const Register = () => {
         console.log(data)
     };
     return (
-        <div className="register">
+        <div className="register text-center">
             <img src={registerLogo} alt="" className="w-25" />
             <form onSubmit={handleSubmit(onSubmit)} className="w-75 mx-auto">
                 <div className="d-flex flex-column w-50 mx-auto gap-4 mt-4">

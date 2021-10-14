@@ -6,7 +6,7 @@ const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light">
             <Container>
-                <Navbar.Brand as={Link} to="/home">
+                <Navbar.Brand href="/home">
                     <img
                         alt=""
                         src="logo2.png"
@@ -20,7 +20,7 @@ const Header = () => {
                     <Nav className="me-auto">
                     </Nav>
                     <Nav>
-                        <Nav.Link as={Link} href="#deets"><i className="fas fa-shopping-cart"></i></Nav.Link>
+                        <Nav.Link as={Link} to="/login"><i className="fas fa-shopping-cart"></i></Nav.Link>
                         <Nav.Link as={Link} to="/login" className="btn btn-light rounded-pill px-4 border me-2 ms-2">
                             Login
                         </Nav.Link>

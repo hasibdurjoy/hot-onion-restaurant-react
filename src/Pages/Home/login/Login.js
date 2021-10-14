@@ -9,7 +9,7 @@ const Login = () => {
         console.log(data)
     };
     return (
-        <div className="register">
+        <div className="register text-center">
             <img src={logInLogo} alt="" className="w-25" />
             <form onSubmit={handleSubmit(onSubmit)} className="w-75 mx-auto">
                 <div className="d-flex flex-column w-50 mx-auto gap-5 mt-4">

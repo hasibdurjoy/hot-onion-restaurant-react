@@ -1,40 +1,34 @@
 import React from 'react';
-import { Link, NavLink } from 'react-router-dom';
-import Dinners from '../../Dinners/Dinners';
-import Lunches from '../../Lunches/Lunches';
-import Breakfasts from '../Breakfasts/Breakfasts';
+import { NavLink } from 'react-router-dom';
 import './FoodMenu.css';
 
 
 const FoodMenu = () => {
     const activeStyle = {
         fontWeight: "bold",
-        color: "red"
+        color: 'red'
     };
 
     return (
-        <div className="text-dark food-menu">
+        <div className="text-dark food-menu m-4 text-center">
             <NavLink
-                to="/home/breakfast"
+                to="/home-breakfast"
                 activeStyle={activeStyle}
             >
                 Breakfast
             </NavLink>
             <NavLink
-                to="/home/lunch"
+                to="/home-lunch"
                 activeStyle={activeStyle}
             >
                 Lunch
             </NavLink>
             <NavLink
-                to="/home/dinner"
+                to="/home-dinner"
                 activeStyle={activeStyle}
             >
                 Dinner
             </NavLink>
-            <Breakfasts></Breakfasts>
-            <Lunches></Lunches>
-            <Dinners></Dinners>
         </div>
     );
 };

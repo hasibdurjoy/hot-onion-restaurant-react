@@ -1,11 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Banner from '../Banner/Banner';
+import Breakfasts from '../Breakfasts/Breakfasts';
 import Dinners from '../Dinners/Dinners';
-import Breakfasts from '../FoodMenu/Breakfasts/Breakfasts';
-import Dinner from '../FoodMenu/Dinner/Dinner';
-import FoodMenu from '../FoodMenu/FoodMenu/FoodMenu';
-import Lunch from '../FoodMenu/Lunch/Lunch';
+import FoodMenu from '../FoodMenu/FoodMenu';
+import Lunches from '../Lunches/Lunches';
 import Services from '../Services/Services';
 
 const Home = () => {
@@ -14,23 +13,23 @@ const Home = () => {
             <Router>
                 <Banner></Banner>
                 <FoodMenu></FoodMenu>
-                {/* <Switch>
+                <Switch>
                     <Route exact path="/">
                         <Breakfasts></Breakfasts>
                     </Route>
-                    <Route exact path="/home">
+                    <Route path="/home">
                         <Breakfasts></Breakfasts>
                     </Route>
-                    <Route exact path="/home/breakfast">
+                    <Route path="/home-breakfast">
                         <Breakfasts></Breakfasts>
                     </Route>
-                    <Route path="/home/lunch">
-                        <Breakfasts></Breakfasts>
+                    <Route path="/home-lunch">
+                        <Lunches></Lunches>
                     </Route>
-                    <Route path="/home/dinner">
+                    <Route path="/home-dinner">
                         <Dinners></Dinners>
                     </Route>
-                </Switch> */}
+                </Switch>
                 <Services></Services>
             </Router>
         </div >

@@ -3,7 +3,7 @@ import footerLogo from '../../../images/logo.png'
 
 const Footer = () => {
     return (
-        <div className="bg-dark text-light p-5">
+        <div className="bg-dark text-light px-5 pt-3">
             <div className="row">
                 <div className="col-sm-12 col-md-6">
                     <img src={footerLogo} alt="" className="img-fluid w-50" />
@@ -24,7 +24,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className="d-flex justify-content-around mt-4">
-                <p>Copyrights @2020 online foods </p>
+                <p className="text-secondary">Copyrights @2020 online foods </p>
                 <div className="d-flex gap-4">
                     <p>privacy policy</p>
                     <p>Terms of use</p>
