@@ -6,7 +6,7 @@ import Breakfasts from '../FoodMenu/Breakfasts/Breakfasts';
 import Dinner from '../FoodMenu/Dinner/Dinner';
 import FoodMenu from '../FoodMenu/FoodMenu/FoodMenu';
 import Lunch from '../FoodMenu/Lunch/Lunch';
-import Service from '../Service/Service';
+import Services from '../Services/Services';
 
 const Home = () => {
     return (
@@ -31,7 +31,7 @@ const Home = () => {
                         <Dinners></Dinners>
                     </Route>
                 </Switch> */}
-                <Service></Service>
+                <Services></Services>
             </Router>
         </div >
     );
