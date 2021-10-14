@@ -4,18 +4,18 @@ import footerLogo from '../../../images/logo.png'
 const Footer = () => {
     return (
         <div className="bg-dark text-light p-5">
-            <div className="container row">
-                <div className="col-md-6">
+            <div className="row">
+                <div className="col-sm-12 col-md-6">
                     <img src={footerLogo} alt="" className="img-fluid w-50" />
                 </div>
-                <div className="col-md-6 row">
-                    <div className="col-md-6">
+                <div className="col-sm-12 col-md-6 row">
+                    <div className="col-6">
                         <p>About Online Food</p>
                         <p>Rate Our Blog</p>
                         <p>Sign up to deliver</p>
                         <p>Add your restaurant</p>
                     </div>
-                    <div className="col-md-6">
+                    <div className="col-6">
                         <p>Get Help</p>
                         <p>React faqs</p>
                         <p>View all cities</p>
