@@ -1,23 +1,17 @@
-import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import setBreakfast from '../../../Hooks/setBreakfast';
+import Food from '../Food/Food';
 
-const Breakfast = ({ breakfast }) => {
-    const { name, description, img, price } = breakfast;
+const Breakfast = () => {
+    const { breakfasts } = setBreakfast();
     return (
-        <Col className=" py-3">
-            <Card className="h-100 shadow">
-                <Card.Img variant="top" src={img} className="img-fluid w-50 mx-auto py-3" />
-                <Card.Body>
-                    <Card.Title className="text-center">{name}</Card.Title>
-                    <Card.Text>
-                        {description.slice(0, 40)}
-                    </Card.Text>
-                    <Card.Title>
-                        ${price}
-                    </Card.Title>
-                </Card.Body>
-            </Card>
-        </Col>
+        <div className="container" id="breakfast">
+            <Row xs={1} md={3} className="g-5">
+                {
+                    breakfasts.map(breakfast => <Food key={breakfast.id} food={breakfast}></Food>)
+                }
+            </Row>
+        </div>
     );
 };
 

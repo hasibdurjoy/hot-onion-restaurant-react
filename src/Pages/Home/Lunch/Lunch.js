@@ -1,24 +1,20 @@
 import React from 'react';
-import { Card, Col } from 'react-bootstrap';
+import { Row } from 'react-bootstrap';
+import useLunches from '../../../Hooks/setLunches';
+import Food from '../Food/Food';
 
-const Lunch = ({ lunch }) => {
-    const { name, description, img, price } = lunch;
+
+const Lunch = () => {
+    const { lunches } = useLunches()
     return (
-        <Col className="shadow-md py-3">
-            <Card className="h-100 shadow">
-                <Card.Img variant="top" src={img} className="img-fluid w-50 mx-auto py-3" />
-                <Card.Body>
-                    <Card.Title className="text-center">{name}</Card.Title>
-                    <Card.Text>
-                        {description.slice(0, 40)}
-                    </Card.Text>
-                    <Card.Title>
-                        ${price}
-                    </Card.Title>
-                </Card.Body>
-            </Card>
-        </Col>
+        <div className="container" id="lunch">
+            <Row xs={1} md={3} className="g-5">
+                {
+                    lunches.map(lunch => <Food key={lunch.id} food={lunch}></Food>)
+                }
+            </Row>
+        </div>
     );
 };
 
-export default Lunch; <h2>Here is your lunch</h2>
+export default Lunch;

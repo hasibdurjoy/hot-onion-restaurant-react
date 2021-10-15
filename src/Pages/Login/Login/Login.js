@@ -16,7 +16,7 @@ const Login = () => {
                     <input  {...register("email", { required: true })} className="rounded border-light py-1 px-3 fs-5" placeholder="email *" />
                     {errors.email && <span className="text-danger text-start">** email address is required</span>}
 
-                    <input  {...register("password", { required: true })} className="rounded border-light py-1 px-3 fs-5" placeholder="password *" />
+                    <input type="password" {...register("password", { required: true })} className="rounded border-light py-1 px-3 fs-5" placeholder="password *" />
                     {errors.password && <span className="text-danger text-start">** password is required</span>}
 
                     <input type="submit" value="Login" className="btn btn-danger w-100 mx-auto fs-4 mb-1" />

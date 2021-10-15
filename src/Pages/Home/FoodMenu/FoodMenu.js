@@ -1,35 +1,37 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { Col, Container, Row, Tab, Tabs } from 'react-bootstrap';
+import Breakfast from '../Breakfast/Breakfast';
+import Dinner from '../Dinner/Dinner';
+import Lunch from '../Lunch/Lunch';
 import './FoodMenu.css';
 
 
 const FoodMenu = () => {
-    const activeStyle = {
-        fontWeight: "bold",
-        color: 'red'
-    };
 
     return (
-        <div className="text-dark food-menu m-4 text-center">
-            <NavLink
-                to="/home-breakfast"
-                activeStyle={activeStyle}
-            >
-                Breakfast
-            </NavLink>
-            <NavLink
-                to="/home-lunch"
-                activeStyle={activeStyle}
-            >
-                Lunch
-            </NavLink>
-            <NavLink
-                to="/home-dinner"
-                activeStyle={activeStyle}
-            >
-                Dinner
-            </NavLink>
-        </div>
+        <Container className="py-3 text-bold">
+            <Row>
+                <Col>
+                    <div>
+                        <Tabs
+                            defaultActiveKey="breakfast"
+                            id="uncontrolled-tab-example"
+                            className="mb-3 justify-content-center"
+                        >
+                            <Tab eventKey="breakfast" title="Breakfast">
+                                <Breakfast></Breakfast>
+                            </Tab>
+                            <Tab eventKey="lunch" title="Lunch">
+                                <Lunch></Lunch>
+                            </Tab>
+                            <Tab eventKey="dinner" title="Dinner">
+                                <Dinner></Dinner>
+                            </Tab>
+                        </Tabs>
+                    </div>
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

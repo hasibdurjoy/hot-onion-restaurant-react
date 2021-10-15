@@ -1,6 +1,6 @@
 import React from 'react';
 import './Register.css';
-import registerLogo from '../../../images/logo2.png';
+import registerLogo from '../../images/logo2.png';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 
