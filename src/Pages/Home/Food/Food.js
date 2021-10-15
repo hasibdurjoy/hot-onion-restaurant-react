@@ -17,7 +17,7 @@ const Food = ({ food }) => {
                         ${price}
                     </Card.Title>
                     <div className="text-center mt-3">
-                        <Link to={`/details/:${id}`}
+                        <Link to={`/details/${id}`}
                         ><button className="btn btn-danger rounded-pill">Buy Now</button></Link>
                     </div>
                 </Card.Body>

@@ -5,17 +5,41 @@ import Header from '../../Shared/Header/Header';
 const FoodDetails = () => {
     const { foodID } = useParams();
 
-    const [allFood, setAllFood] = useState([]);
+    const [singleFood, setSingleFood] = useState([]);
+    const { id, name, description, img, price } = singleFood;
     useEffect(() => {
-        fetch("allFood.json")
+        fetch("https://raw.githubusercontent.com/hasibdurjoy/hot-onion-restaurant-react/main/public/allFood.json")
             .then(res => res.json())
-            .then(data => setAllFood(data))
-    }, [Header]);
-    console.log('allFood');
-    console.log(allFood);
+            .then(data => setSingleFood(data.find(food => food.id === foodID)))
+    }, []);
+    console.log(foodID, singleFood);
+    // console.log(allFood.find(food => food.id === foodID));
+    const [count, setCount] = useState(1);
+    const increaseItem = () => {
+        setCount(count + 1);
+    }
+    const decreaseItem = () => {
+        if (count > 1) {
+
+            setCount(count - 1);
+        }
+    }
     return (
-        <div className="text-center p-5">
-            <h1>{foodID}</h1>
+        <div className="container py-5">
+            <div className="row">
+                <div className="col-md-6">
+                    <h1>{name}</h1>
+                    <p>{description}</p>
+                    <div className="d-flex gap-4">
+                        <h2>${price}</h2>
+                        <div className="btn border-secondary rounded-pill px-2 fs-3"><small className="px-3" onClick={decreaseItem}>-</small> {count} <small className="px-3" onClick={increaseItem}>+</small></div>
+                    </div>
+                    <button className="btn-danger btn rounded-pill mt-4"><i className="fas fa-shopping-cart"></i> Add to cart</button>
+                </div>
+                <div className="col-md-6">
+                    <img src={img} alt="" className="img-fluid px-5" />
+                </div>
+            </div>
         </div>
     );
 };
