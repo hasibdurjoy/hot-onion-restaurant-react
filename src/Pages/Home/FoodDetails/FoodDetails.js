@@ -13,21 +13,19 @@ const FoodDetails = () => {
             .then(data => setSingleFood(data.find(food => food.id === foodID)))
     }, []);
     console.log(foodID, singleFood);
-    // console.log(allFood.find(food => food.id === foodID));
     const [count, setCount] = useState(1);
     const increaseItem = () => {
         setCount(count + 1);
     }
     const decreaseItem = () => {
         if (count > 1) {
-
             setCount(count - 1);
         }
     }
     return (
         <div className="container py-5">
             <div className="row">
-                <div className="col-md-6">
+                <div className="col-lg-6 col-md-6 col-12">
                     <h1>{name}</h1>
                     <p>{description}</p>
                     <div className="d-flex gap-4">
@@ -36,7 +34,7 @@ const FoodDetails = () => {
                     </div>
                     <button className="btn-danger btn rounded-pill mt-4"><i className="fas fa-shopping-cart"></i> Add to cart</button>
                 </div>
-                <div className="col-md-6">
+                <div className="col-lg-6 col-md-6 col-12">
                     <img src={img} alt="" className="img-fluid px-5" />
                 </div>
             </div>
