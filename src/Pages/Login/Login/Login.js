@@ -2,6 +2,7 @@ import React from 'react';
 import logInLogo from '../../../images/logo2.png';
 import { useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import useFirebase from '../../../Hooks/useFirebase';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -9,6 +10,7 @@ const Login = () => {
         console.log(data)
     };
 
+    const { signInUsingGoogle } = useFirebase();
     return (
         <div className="register text-center">
             <img src={logInLogo} alt="" className="w-25" />
@@ -25,7 +27,7 @@ const Login = () => {
             </form>
             <p>Login using</p>
             <div >
-                <button className="btn btn-warning mx-5 fs-4 rounded-circle"><i className="fab fa-google"></i></button>
+                <button onClick={signInUsingGoogle} className="btn btn-warning mx-5 fs-4 rounded-circle"><i className="fab fa-google"></i></button>
                 <button className="btn btn-secondary mx-5 fs-4 rounded-circle"><i className="fab fa-github"></i></button>
                 <button className="btn btn-primary mx-5 fs-4 rounded-circle"><i className="fab fa-facebook"></i></button>
             </div>

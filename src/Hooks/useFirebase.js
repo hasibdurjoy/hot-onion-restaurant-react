@@ -37,7 +37,7 @@ const useFirebase = () => {
             })
             .finally(() => { setIsLoading(false) })
     }
-    useEffect(() => {
+    /* useEffect(() => {
         const unsubscribed = onAuthStateChanged(auth, (user) => {
             if (user) {
                 setUser(user)
@@ -48,7 +48,17 @@ const useFirebase = () => {
             setIsLoading(false);
         })
         return () => unsubscribed;
-    }, []);
+    }, []); */
+    /*   useEffect(() => {
+          onAuthStateChanged(auth, (user) => {
+              if (user) {
+                  setUser(user);
+                  // readDatabase(user.uid);
+              } else {
+                  setUser({});
+              }
+          });
+      }, []); */
     const logOut = () => {
         setIsLoading(true);
         signOut(auth)
