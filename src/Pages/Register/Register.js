@@ -2,13 +2,44 @@ import React from 'react';
 import './Register.css';
 import registerLogo from '../../images/logo2.png';
 import { useForm } from 'react-hook-form';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useHistory } from 'react-router-dom';
+import useAuth from '../../Hooks/useAuth';
 
 const Register = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+
+    const location = useLocation();
+    const history = useHistory();
+    const redirect_url = location.state?.from || "/home";
+
     const onSubmit = data => {
         console.log(data)
     };
+
+    const { signInWithGoogle, signInWithGithub, signInWithFacebook } = useAuth();
+
+    const logInWithGoogle = () => {
+        signInWithGoogle()
+            .then(result => {
+                history.push(redirect_url);
+            })
+    }
+
+    const logInWithGithub = () => {
+        signInWithGithub()
+            .then(result => {
+                history.push(redirect_url);
+            })
+    }
+
+    const logInWithFacebook = () => {
+        signInWithFacebook()
+            .then(result => {
+                history.push(redirect_url);
+            })
+    }
+
     return (
         <div className="register text-center">
             <img src={registerLogo} alt="" className="w-25" />
@@ -31,9 +62,9 @@ const Register = () => {
             </form>
             <p>Signup using</p>
             <div >
-                <button className="btn btn-warning mx-5 fs-4 rounded-circle"><i className="fab fa-google"></i></button>
-                <button className="btn btn-secondary mx-5 fs-4 rounded-circle"><i className="fab fa-github"></i></button>
-                <button className="btn btn-primary mx-5 fs-4 rounded-circle"><i className="fab fa-facebook"></i></button>
+                <button onClick={logInWithGoogle} className="btn btn-warning mx-5 fs-4 rounded-circle"><i className="fab fa-google"></i></button>
+                <button onClick={logInWithGithub} className="btn btn-secondary mx-5 fs-4 rounded-circle"><i className="fab fa-github"></i></button>
+                <button onClick={logInWithFacebook} className="btn btn-primary mx-5 fs-4 rounded-circle"><i className="fab fa-facebook"></i></button>
             </div>
             <div className="p-4">
                 <Link to="/login" >Already have an account?? Login now</Link>

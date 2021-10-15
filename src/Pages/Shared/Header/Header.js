@@ -6,7 +6,7 @@ import useFirebase from '../../../Hooks/useFirebase';
 
 const Header = () => {
     const { user, logOut } = useAuth();
-    console.log(user);
+
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
             <Container>

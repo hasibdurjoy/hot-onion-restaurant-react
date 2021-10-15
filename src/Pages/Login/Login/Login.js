@@ -2,19 +2,19 @@ import React from 'react';
 import logInLogo from '../../../images/logo2.png';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useHistory } from 'react-router-dom';
-import useFirebase from '../../../Hooks/useFirebase';
+import useAuth from '../../../Hooks/useAuth';
 
 const Login = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
     const location = useLocation();
     const history = useHistory();
-    const redirect_url = location.state?.from || "/shop";
+    const redirect_url = location.state?.from || "/home";
 
     const onSubmit = data => {
         console.log(data)
     };
 
-    const { signInWithGoogle, signInWithGithub, signInWithFacebook } = useFirebase();
+    const { signInWithGoogle, signInWithGithub, signInWithFacebook } = useAuth();
 
     const logInWithGoogle = () => {
         signInWithGoogle()
