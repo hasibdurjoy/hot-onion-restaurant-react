@@ -1,78 +1,49 @@
-import { getAuth, signInWithPopup, GoogleAuthProvider, signOut, onAuthStateChanged, GithubAuthProvider, FacebookAuthProvider } from "firebase/auth";
-import { useState } from "react";
-import { useEffect } from "react/cjs/react.development";
-import initializeAuthentication from "../Pages/Login/Firebase/firebase.init";
+import { useEffect, useState } from "react";
+import { GoogleAuthProvider, getAuth, signInWithPopup, onAuthStateChanged, signOut } from "firebase/auth";
+import initializeAuthentication from "../firebase/firebase.init";
 
 initializeAuthentication();
 const useFirebase = () => {
     const [user, setUser] = useState({});
-    const [isLoading, setIsLoading] = useState(true);
-
+    const [error, setError] = useState({});
 
     const auth = getAuth();
-    const signInUsingGoogle = () => {
-        const googleProvider = new GoogleAuthProvider();
-        signInWithPopup(auth, googleProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .finally(() => { setIsLoading(false) })
+    const googleProvider = new GoogleAuthProvider();
+
+
+    //sing in with google
+    const signInWithGoogle = () => {
+        return signInWithPopup(auth, googleProvider);
     };
 
-    const signInUsingGithub = () => {
-        const githubProvider = new GithubAuthProvider();
-        signInWithPopup(auth, githubProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .finally(() => { setIsLoading(false) })
-    };
+    //sign in with other will be added here
 
-
-    const signInUsingFacebook = () => {
-        const facebookProvider = new FacebookAuthProvider();
-        signInWithPopup(auth, facebookProvider)
-            .then(result => {
-                setUser(result.user);
-            })
-            .finally(() => { setIsLoading(false) })
-    }
-    /* useEffect(() => {
-        const unsubscribed = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user)
-            }
-            else {
-                setUser({})
-            }
-            setIsLoading(false);
-        })
-        return () => unsubscribed;
-    }, []); */
-    /*   useEffect(() => {
-          onAuthStateChanged(auth, (user) => {
-              if (user) {
-                  setUser(user);
-                  // readDatabase(user.uid);
-              } else {
-                  setUser({});
-              }
-          });
-      }, []); */
+    //log out
     const logOut = () => {
-        setIsLoading(true);
         signOut(auth)
-            .then(() => { })
-            .finally(() => { setIsLoading(false) })
-    }
+            .then(() => {
+                setUser({});
+            })
+    };
+
+    //observing state change or not
+    useEffect(() => {
+        onAuthStateChanged(auth, (user) => {
+            if (user) {
+                setUser(user);
+            }
+        });
+    }, []);
+
+    //return
     return {
         user,
-        isLoading,
-        setUser,
-        signInUsingGoogle,
-        signInUsingGithub,
-        signInUsingFacebook,
+        error,
+        signInWithGoogle,
         logOut
     }
 }
+
+
+//export
 export default useFirebase;
