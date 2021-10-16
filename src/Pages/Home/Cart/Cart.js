@@ -6,14 +6,14 @@ const Cart = (props) => {
 
     let totalQuantity = 0;
     let total = 0;
-    for (const product of cart) {
-        console.log(product.quantity);
-        if (!product.quantity) {
-            product.quantity = 1;
-        }
-        total = total + product.price * product.quantity;
-        totalQuantity = totalQuantity + product.quantity;
-    }
+    /*  for (const product of cart) {
+         console.log(product.quantity);
+         if (!product.quantity) {
+             product.quantity = 1;
+         }
+         total = total + product.price * product.quantity;
+         totalQuantity = totalQuantity + product.quantity;
+     } */
 
     const shipping = total > 0 ? 15 : 0;
     const tax = (total + shipping) * 0.10;

@@ -27,7 +27,7 @@ const Header = () => {
                     </Nav>
                     {
                         user.email ? <Nav>
-                            <Nav.Link as={Link} to="/cart"><i className="fas fa-shopping-cart">0</i></Nav.Link>
+                            <Nav.Link as={Link} to="/shipping"><i className="fas fa-shopping-cart">0</i></Nav.Link>
                             <Nav.Link as={Link} to="/home" className="btn btn-light rounded-pill px-4 border me-2 ms-2">
                                 {user.displayName}
                             </Nav.Link>

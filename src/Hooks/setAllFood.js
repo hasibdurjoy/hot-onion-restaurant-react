@@ -4,7 +4,7 @@ const useAllFoods = () => {
     const [allFood, setAllFood] = useState([]);
 
     useEffect(() => {
-        fetch('allFood.json')
+        fetch("https://raw.githubusercontent.com/hasibdurjoy/hot-onion-restaurant-react/main/public/allFood.json")
             .then(res => res.json())
             .then(data => setAllFood(data))
     }, []);

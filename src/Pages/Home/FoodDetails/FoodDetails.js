@@ -12,6 +12,8 @@ const FoodDetails = () => {
     const [cart, setCart] = useCart(allFood);
 
     const { id, name, description, img, price } = singleFood;
+    const history = useHistory();
+
 
     useEffect(() => {
         fetch("https://raw.githubusercontent.com/hasibdurjoy/hot-onion-restaurant-react/main/public/allFood.json")
@@ -48,6 +50,7 @@ const FoodDetails = () => {
         setCart(newCart);
         // save to local storage (for now)
         addToDb(food.id);
+        history.push('/cart');
     }
     /* const history = useHistory();
     const handleAddToCart = () => {
