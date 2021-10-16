@@ -10,6 +10,7 @@ const Shipping = () => {
     const { allFood } = useAllFoods();
     console.log(allFood);
     const [cart, setCart] = useCartData(allFood);
+    console.log(cart);
 
     const { user } = useAuth();
     const onSubmit = data => {

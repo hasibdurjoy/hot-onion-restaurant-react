@@ -12,7 +12,6 @@ const FoodDetails = () => {
     const [cart, setCart] = useCart(allFood);
 
     const { id, name, description, img, price } = singleFood;
-    const history = useHistory();
 
 
     useEffect(() => {
@@ -50,7 +49,6 @@ const FoodDetails = () => {
         setCart(newCart);
         // save to local storage (for now)
         addToDb(food.id);
-        history.push('/cart');
     }
     /* const history = useHistory();
     const handleAddToCart = () => {
