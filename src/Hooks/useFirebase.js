@@ -8,7 +8,8 @@ import {
     GithubAuthProvider,
     FacebookAuthProvider,
     createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    updateProfile
 } from "firebase/auth";
 import initializeAuthentication from "../firebase/firebase.init";
 
@@ -23,11 +24,13 @@ const useFirebase = () => {
     const facebookProvider = new FacebookAuthProvider();
 
 
-    const registerWithEmailPassword = (email, password) => {
+    const registerWithEmailPassword = (name, email, password) => {
         console.log(email, password);
         createUserWithEmailAndPassword(auth, email, password)
             .then((result) => {
-                setUser(result.user);
+                console.log(result.user);
+                updateProfile(auth.currentUser, { displayName: name })
+                    .then(result => { })
             })
             .catch((error) => {
                 setError(error.message);
@@ -46,6 +49,8 @@ const useFirebase = () => {
                 setError(error.message);
             })
     }
+
+
     //sing in with google
     const signInWithGoogle = () => {
         return signInWithPopup(auth, googleProvider);

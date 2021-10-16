@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import './App.css';
 import AuthProvider from './context/AuthProvider';
+import Cart from './Pages/Home/Cart/Cart';
 import FoodDetails from './Pages/Home/FoodDetails/FoodDetails';
 import Home from './Pages/Home/Home/Home';
 import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
@@ -29,8 +30,11 @@ function App() {
             <Route path="/register">
               <Register></Register>
             </Route>
-            <PrivateRoute path="/details/:foodID">
+            <Route path="/details/:foodID">
               <FoodDetails></FoodDetails>
+            </Route>
+            <PrivateRoute path="/cart">
+              <Cart></Cart>
             </PrivateRoute>
             <Route path="*">
               <NotFound></NotFound>

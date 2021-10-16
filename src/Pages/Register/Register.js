@@ -19,7 +19,8 @@ const Register = () => {
 
 
     const onSubmit = data => {
-        registerWithEmailPassword(data.email, data.password)
+        registerWithEmailPassword(data.name, data.email, data.password);
+        // setUserName();
         console.log(data);
         console.log(data.name);
     };
