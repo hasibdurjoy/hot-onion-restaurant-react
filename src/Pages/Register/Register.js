@@ -13,11 +13,17 @@ const Register = () => {
     const history = useHistory();
     const redirect_url = location.state?.from || "/home";
 
+
+
+    const { signInWithGoogle, signInWithGithub, signInWithFacebook, registerWithEmailPassword } = useAuth();
+
+
     const onSubmit = data => {
-        console.log(data)
+        registerWithEmailPassword(data.email, data.password);
+        console.log(data);
+        console.log(data.name);
     };
 
-    const { signInWithGoogle, signInWithGithub, signInWithFacebook } = useAuth();
 
     const logInWithGoogle = () => {
         signInWithGoogle()
