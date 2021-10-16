@@ -1,11 +1,12 @@
 import React from 'react';
+import './Service.css'
 import { Card, Col } from 'react-bootstrap';
 
 const Service = ({ service }) => {
     const { name, description, img, icon } = service;
     return (
         <Col className="shadow-md py-3">
-            <Card className="h-100" style={{ border: 'none' }}>
+            <Card className="h-100 service-container" style={{ border: 'none' }}>
                 <Card.Img variant="top" src={img} className="img-fluid w-100 mx-auto " />
                 <Card.Body>
                     <div className="d-flex">

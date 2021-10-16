@@ -1,0 +1,9 @@
+.service-container:hover {
+    transition: transform 1s;
+    transform: scale(1.10);
+}
+.service-container:hover img{
+    transition: transform 1s;
+    transform: scale(1.15);
+
+}

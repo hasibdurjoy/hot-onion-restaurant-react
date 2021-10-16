@@ -1,0 +1,9 @@
+.food-container:hover {
+    transition: transform 1s;
+    transform: scale(1.10);
+}
+.food-container:hover img{
+    transition: transform 1s;
+    transform: scale(1.10);
+
+}

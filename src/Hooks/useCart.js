@@ -3,10 +3,10 @@ import { getStoredCart } from '../utilities/fakeDb';
 
 const useCart = allFood => {
     const [cart, setCart] = useState([]);
-
+    console.log(allFood);
     useEffect(() => {
 
-        if (allFood.length) {
+        if (allFood) {
             const savedCart = getStoredCart();
             const storedCart = [];
             for (const key in savedCart) {
