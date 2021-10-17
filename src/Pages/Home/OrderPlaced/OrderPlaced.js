@@ -1,14 +1,15 @@
 import React from 'react';
+import './OrderPlaced.css';
 
 const OrderPlaced = () => {
     return (
         <div>
             <div className="row gap-5">
                 <div className="col-md-6 me-5 ms-5 ps-5">
-                    <img src="https://www.trackyourtruck.com/profiles/sndev_install/themes/sndev/img/fleet-tracking-pic1b.jpg" alt="" />
+                    <img src="https://www.trackyourtruck.com/profiles/sndev_install/themes/sndev/img/fleet-tracking-pic1b.jpg" alt="" className="rounded p-3 shadow w-75" />
                 </div>
-                <div className="col-md-3  card mx-5 border-0 shadow-lg h-100 py-5">
-                    <img src="https://i.ibb.co/tHFpb6B/Group-1151.png" className="w-50 p-3" alt="" height="120px" />
+                <div className="col-md-3  card mx-5 border-0 shadow-lg h-100 py-3">
+                    <img src="https://i.ibb.co/tHFpb6B/Group-1151.png" className="w-50 p-3 order-page-bike" alt="" height="120px" />
                     <div className="card border-0 shadow p-2">
                         <h5><i className="fas fa-map-marker-alt"></i> Your Location</h5>
                         <p>107 Rd No 8</p>
