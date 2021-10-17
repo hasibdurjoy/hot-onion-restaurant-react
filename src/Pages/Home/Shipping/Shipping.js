@@ -6,6 +6,7 @@ import useAuth from '../../../Hooks/useAuth';
 import useCartData from '../../../Hooks/useCartData';
 import { getStoredCart } from '../../../utilities/fakeDb';
 import Cart from '../Cart/Cart';
+import './Shipping.css';
 
 const Shipping = () => {
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -18,9 +19,11 @@ const Shipping = () => {
     console.log(allFoods);
 
     const { user } = useAuth();
+
+
     const onSubmit = data => {
         console.log(data);
-        document.getElementById('confirm-order').disabled = false;
+        document.getElementById('confirm-order').style.display = "block";
     };
 
 
@@ -30,7 +33,7 @@ const Shipping = () => {
         confirmHistory.push('/ordered')
     }
     return (
-        <div className=" py-5">
+        <div className=" py-1">
             <div className="row gap-5 mx-5">
                 <div className="col-md-8 card border-0 shadow py-4 ">
                     <h3 className="text-center">Give Your Delivery Info here</h3><hr />
@@ -60,6 +63,7 @@ const Shipping = () => {
                     </form>
                 </div>
                 <div className="col-md-3 card border-0 shadow d-flex justify-content-center">
+                    <h2 className="text-center">Your Cart</h2>
                     <Cart cart={cart}></Cart>
                     <button onClick={confirmOrder} className="btn btn-danger rounded-pill" id="confirm-order">Confirm</button>
                 </div>
