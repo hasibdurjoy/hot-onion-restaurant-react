@@ -1,19 +1,13 @@
 import React from 'react';
-import { useHistory } from 'react-router';
 
 
 const Cart = (props) => {
     const { cart } = props;
     console.log(cart);
-    const history = useHistory();
 
-    const placeOrder = () => {
-        history.push('/shipping');
-    }
     let totalQuantity = 0;
     let total = 0;
     for (const product of cart) {
-        console.log(product.quantity);
         if (!product.quantity) {
             product.quantity = 1;
         }
@@ -41,9 +35,6 @@ const Cart = (props) => {
                     <p>${shipping.toFixed(2)}</p>
                     <h4>${grandTotal.toFixed(2)}</h4>
                 </div>
-            </div>
-            <div className="text-center my-4">
-                <button onClick={placeOrder} className="btn btn-danger rounded-pill">Place Order</button>
             </div>
         </div>
     );

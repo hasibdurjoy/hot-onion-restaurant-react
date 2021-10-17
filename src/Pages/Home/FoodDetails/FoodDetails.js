@@ -3,6 +3,7 @@ import { useHistory, useParams } from 'react-router';
 import useCart from '../../../Hooks/useCart';
 import { addToDb } from '../../../utilities/fakeDb';
 import Cart from '../Cart/Cart';
+import ShowItemInCart from '../ShowItemInCart/ShowItemInCart';
 
 const FoodDetails = () => {
     const { foodID } = useParams();
@@ -11,7 +12,7 @@ const FoodDetails = () => {
     const [singleFood, setSingleFood] = useState([]);
     const [cart, setCart] = useCart(allFood);
 
-    const { id, name, description, img, price } = singleFood;
+    const { name, description, img, price } = singleFood;
 
 
     useEffect(() => {
@@ -54,6 +55,10 @@ const FoodDetails = () => {
     const handleAddToCart = () => {
         history.push('/cart');
     } */
+    const history = useHistory();
+    const proceedToOrder = () => {
+        history.push('/shipping');
+    }
     return (
         <div className=" py-5">
             <div className="row gap-5 mx-5">
@@ -77,8 +82,15 @@ const FoodDetails = () => {
                         </div>
                     </div>
                 </div>
-                <div className="col-md-3 card border-0 shadow d-flex justify-content-center">
+                <div className="col-md-3 card border-0 shadow">
+                    <h2 className="text-center">Your Cart</h2>
+                    <div className="my-2">
+                        {
+                            cart.map(item => <ShowItemInCart key={item.id} item={item}></ShowItemInCart>)
+                        }
+                    </div>
                     <Cart cart={cart}></Cart>
+                    <button onClick={proceedToOrder} className="btn btn-danger rounded-pill">Proceed to order</button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,6 @@ import { getStoredCart } from '../utilities/fakeDb';
 
 const useCart = allFood => {
     const [cart, setCart] = useState([]);
-    console.log(allFood);
     useEffect(() => {
 
         if (allFood) {

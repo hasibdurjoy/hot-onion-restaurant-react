@@ -1,14 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../Hooks/useAuth';
-import useCartData from '../../../Hooks/useCartData';
 
 const Header = () => {
     const { user, logOut } = useAuth();
-    const { cart } = useCartData();
-    console.log(cart);
     return (
         <Navbar collapseOnSelect expand="lg" bg="light" variant="light" sticky="top">
             <Container>

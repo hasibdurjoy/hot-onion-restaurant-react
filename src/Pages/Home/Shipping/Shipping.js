@@ -1,8 +1,10 @@
 import React from 'react';
 import { useForm } from 'react-hook-form';
+import { useHistory } from 'react-router';
 import useAllFoods from '../../../Hooks/setAllFood';
 import useAuth from '../../../Hooks/useAuth';
 import useCartData from '../../../Hooks/useCartData';
+import { getStoredCart } from '../../../utilities/fakeDb';
 import Cart from '../Cart/Cart';
 
 const Shipping = () => {
@@ -12,10 +14,21 @@ const Shipping = () => {
     const [cart, setCart] = useCartData(allFood);
     console.log(cart);
 
+    const allFoods = getStoredCart();
+    console.log(allFoods);
+
     const { user } = useAuth();
     const onSubmit = data => {
-        console.log(data)
+        console.log(data);
+        document.getElementById('confirm-order').disabled = false;
     };
+
+
+
+    const history = useHistory();
+    const confirmOrder = () => {
+        history.push('/shipping');
+    }
     return (
         <div className=" py-5">
             <div className="row gap-5 mx-5">
@@ -48,6 +61,7 @@ const Shipping = () => {
                 </div>
                 <div className="col-md-3 card border-0 shadow d-flex justify-content-center">
                     <Cart cart={cart}></Cart>
+                    <button disabled onClick={confirmOrder} className="btn btn-danger rounded-pill" id="confirm-order">Confirm</button>
                 </div>
             </div>
         </div>
