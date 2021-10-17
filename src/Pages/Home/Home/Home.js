@@ -1,6 +1,7 @@
 import React from 'react';
 import Banner from '../Banner/Banner';
 import FoodMenu from '../FoodMenu/FoodMenu';
+import OrderPlaced from '../OrderPlaced/OrderPlaced';
 import Services from '../Services/Services';
 
 const Home = () => {

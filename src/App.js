@@ -5,6 +5,7 @@ import CartProvider from './context/CartProvider';
 import Cart from './Pages/Home/Cart/Cart';
 import FoodDetails from './Pages/Home/FoodDetails/FoodDetails';
 import Home from './Pages/Home/Home/Home';
+import OrderPlaced from './Pages/Home/OrderPlaced/OrderPlaced';
 import PrivateRoute from './Pages/Home/PrivateRoute/PrivateRoute';
 import Shipping from './Pages/Home/Shipping/Shipping';
 import Login from './Pages/Login/Login/Login';
@@ -28,6 +29,7 @@ function App() {
               <Route path="/details/:foodID"><FoodDetails /></Route>
               <PrivateRoute path="/cart"><Cart /></PrivateRoute>
               <PrivateRoute path="/shipping"><Shipping /></PrivateRoute>
+              <PrivateRoute path="/ordered"><OrderPlaced /></PrivateRoute>
               <Route path="*"><NotFound /></Route>
             </Switch>
             <Footer></Footer>

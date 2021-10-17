@@ -25,9 +25,9 @@ const Shipping = () => {
 
 
 
-    const history = useHistory();
+    const confirmHistory = useHistory();
     const confirmOrder = () => {
-        history.push('/shipping');
+        confirmHistory.push('/ordered')
     }
     return (
         <div className=" py-5">
@@ -61,7 +61,7 @@ const Shipping = () => {
                 </div>
                 <div className="col-md-3 card border-0 shadow d-flex justify-content-center">
                     <Cart cart={cart}></Cart>
-                    <button disabled onClick={confirmOrder} className="btn btn-danger rounded-pill" id="confirm-order">Confirm</button>
+                    <button onClick={confirmOrder} className="btn btn-danger rounded-pill" id="confirm-order">Confirm</button>
                 </div>
             </div>
         </div>

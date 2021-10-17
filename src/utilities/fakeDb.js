@@ -15,6 +15,7 @@ const addToDb = id => {
             shopping_cart[id] = 1;
         }
     }
+
     updateDb(shopping_cart);
 }
 
